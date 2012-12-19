@@ -17,4 +17,9 @@
         </service>
     </services>
     -->
+    <services>
+        <service id="serge.twig.shop_extension" class="Serge\ShopBundle\Twig\ShopExtension">
+            <tag name="twig.extension" />
+        </service>
+    </services>
 </container>

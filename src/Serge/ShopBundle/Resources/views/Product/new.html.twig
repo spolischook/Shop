@@ -1,7 +1,8 @@
 <h1>Product creation</h1>
 
 <form action="{{ path('product_create') }}" method="post" {{ form_enctype(form) }}>
-    {{ form_widget(form) }}
+    {{ form_row(form.name) }}
+    {{ form_row(form.category) }}
     <p>
         <button type="submit">Create</button>
     </p>

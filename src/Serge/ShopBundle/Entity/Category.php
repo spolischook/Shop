@@ -27,7 +27,7 @@ class Category
      *
      * @ORM\Column(name="name", type="string", length=255)
      */
-    private $name;
+    private  $name;
 
     /**
      * @var
@@ -36,6 +36,13 @@ class Category
      * @ORM\JoinTable(name="category_products")
      */
     private $products;
+
+    /**
+     * @var
+     *
+     * @ORM\Column(name="description", type="text")
+     */
+    private $description;
 
     /**
      * @var
@@ -138,6 +145,22 @@ class Category
     public function setChildren($children)
     {
         $this->children = $children;
+    }
+
+    /**
+     * @return
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * @param  $description
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
     }
 
 }

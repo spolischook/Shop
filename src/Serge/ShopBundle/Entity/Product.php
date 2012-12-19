@@ -81,7 +81,7 @@ class Product
      * @param string $category
      * @return Product
      */
-    public function setCategory($category)
+    public function setCategory(ArrayCollection $category)
     {
         $this->category = $category;
     

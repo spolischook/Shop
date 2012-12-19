@@ -12,6 +12,7 @@ class CategoryType extends AbstractType
     {
         $builder
             ->add('name')
+            ->add('description')
             ->add('parent', null, array(
                 'property' => 'name',
                 'required' => false

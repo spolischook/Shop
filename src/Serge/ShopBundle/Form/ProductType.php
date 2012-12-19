@@ -5,6 +5,7 @@ namespace Serge\ShopBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+use Serge\ShopBundle\Form\CategoryType;
 
 class ProductType extends AbstractType
 {
@@ -12,12 +13,18 @@ class ProductType extends AbstractType
     {
         $builder
             ->add('name')
-            ->add('category', 'entity', array(
+            ->add('category', 'collection', array(
+                'type' => 'entity',
+                'options' => array(
                     'class' => 'ShopBundle:Category',
-                    'property' => 'name',
-                    'multiple' => true)
-
-            );
+                    'property' => 'name'
+                )));
+//        $builder
+//            ->add('name')
+//            ->add('category', 'entity', array(
+//                'class' => 'ShopBundle:Category',
+//                'property' => 'name'
+//            ));
     }
 
     public function setDefaultOptions(OptionsResolverInterface $resolver)

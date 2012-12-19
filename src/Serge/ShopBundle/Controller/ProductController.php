@@ -8,6 +8,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Serge\ShopBundle\Entity\Product;
+use Serge\ShopBundle\Entity\Category;
 use Serge\ShopBundle\Form\ProductType;
 
 /**
@@ -66,11 +67,15 @@ class ProductController extends Controller
      */
     public function newAction()
     {
-        $entity = new Product();
-        $form   = $this->createForm(new ProductType(), $entity);
+        $product = new Product();
+//        $categories = $this->getDoctrine()->getRepository('ShopBundle:Category')->findAll();
+//        foreach ($categories as $category) {
+//            $product->getCategory()->add($category);
+//        }
+        $form   = $this->createForm(new ProductType(), $product);
 
         return array(
-            'entity' => $entity,
+            'entity' => $product,
             'form'   => $form->createView(),
         );
     }
@@ -87,7 +92,7 @@ class ProductController extends Controller
         $entity  = new Product();
         $form = $this->createForm(new ProductType(), $entity);
         $form->bind($request);
-//        var_dump($request); exit();
+//        var_dump($form); exit();
 
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
